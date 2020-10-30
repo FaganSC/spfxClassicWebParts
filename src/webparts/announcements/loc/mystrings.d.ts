@@ -1,7 +1,7 @@
 declare interface IAnnouncementsWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  SelectListFieldLabel: string;
 }
 
 declare module 'AnnouncementsWebPartStrings' {

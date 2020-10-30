@@ -17,7 +17,7 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "announcements" },
+    "title": { "default": "Classic Announcement" },
     "description": { "default": "Classic Announcements for Modern SharePoint" },
     "officeFabricIconFontName": "Page",
     "properties": {

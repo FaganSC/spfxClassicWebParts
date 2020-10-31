@@ -1,8 +1,9 @@
-# classic-web-parts
+# SharePoint Framework Classic Web Parts
+![version](https://img.shields.io/badge/version-1.0-blue.svg)
 
 ## Summary
 
-Short summary on functionality and used technologies.
+Classic SharePoint Web Parts for Modern SharePoint.
 
 [picture of the solution in action, if possible]
 
@@ -17,9 +18,11 @@ Short summary on functionality and used technologies.
 
 > Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
 
-## Prerequisites
-
-> Any special pre-requisites?
+## 3rd Party Packages
+* [PnPjs](https://pnp.github.io/pnpjs/) ![version](https://img.shields.io/badge/version-2.0.11-black.svg)
+* [PnP Controls React](https://pnp.github.io/sp-dev-fx-controls-react/) ![version](https://img.shields.io/badge/version-2.0.1-black.svg)
+* [React HTML Parser](https://www.npmjs.com/package/react-html-parser) ![version](https://img.shields.io/badge/version-2.0.2-black.svg)
+* [MomentJS](https://momentjs.com/) ![version](https://img.shields.io/badge/version-2.29.1-black.svg)
 
 ## Solution
 

@@ -1,15 +1,16 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
-
 .announcements {
-  .item{
-    .createdDate{
-      float:right;
+    .item {
+        max-height: 175px;
+        overflow: hidden;
+        .createdDate {
+            float: right;
+        }
+        .title {
+            text-decoration: none;
+        }
+        .author {
+            text-decoration: none;
+        }
     }
-    .title{
-      text-decoration: none;
-    }
-    .author{
-      text-decoration: none;
-    }
-  }
 }

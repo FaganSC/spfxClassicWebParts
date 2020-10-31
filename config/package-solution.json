@@ -1,21 +1,21 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
-  "solution": {
-    "name": "SharePoint Framework Classic Web Parts",
-    "id": "26446fae-eb0b-42bb-902f-ce40fe8dcd87",
-    "version": "1.0.0.0",
-    "includeClientSideAssets": true,
-    "skipFeatureDeployment": true,
-    "isDomainIsolated": false,
-    "developer": {
-      "name": "",
-      "websiteUrl": "",
-      "privacyUrl": "",
-      "termsOfUseUrl": "",
-      "mpnId": ""
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "SharePoint Framework Classic Web Parts",
+        "id": "26446fae-eb0b-42bb-902f-ce40fe8dcd87",
+        "version": "1.0.0.0",
+        "includeClientSideAssets": true,
+        "skipFeatureDeployment": true,
+        "isDomainIsolated": false,
+        "developer": {
+            "name": "",
+            "websiteUrl": "",
+            "privacyUrl": "",
+            "termsOfUseUrl": "",
+            "mpnId": ""
+        }
+    },
+    "paths": {
+        "zippedPackage": "solution/classic-sp-webparts.sppkg"
     }
-  },
-  "paths": {
-    "zippedPackage": "solution/classic-web-parts.sppkg"
-  }
 }

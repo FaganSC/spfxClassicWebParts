@@ -21,6 +21,7 @@ Classic SharePoint Web Parts for Modern SharePoint.
 ## 3rd Party Packages
 * [PnPjs](https://pnp.github.io/pnpjs/) ![version](https://img.shields.io/badge/version-2.0.11-black.svg)
 * [PnP Controls React](https://pnp.github.io/sp-dev-fx-controls-react/) ![version](https://img.shields.io/badge/version-2.0.1-black.svg)
+* [PnP Property Pane Controls](https://pnp.github.io/sp-dev-fx-property-controls/) ![version](https://img.shields.io/badge/version-2.0.1-black.svg)
 * [React HTML Parser](https://www.npmjs.com/package/react-html-parser) ![version](https://img.shields.io/badge/version-2.0.2-black.svg)
 * [MomentJS](https://momentjs.com/) ![version](https://img.shields.io/badge/version-2.29.1-black.svg)
 

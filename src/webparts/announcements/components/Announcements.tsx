@@ -16,35 +16,19 @@ import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
 import { DisplayMode } from "@microsoft/sp-core-library";
 import { Spinner } from "office-ui-fabric-react/lib/Spinner";
 
-const onRenderCell = (
-  item: AnnouncementItem,
-  index: number | undefined
-): JSX.Element => {
-  return (
-    <div data-is-focusable={true} className={styles.item}>
-      <div className={styles.createdDate}>
-        {moment(item.Created).format("M/D/YYYY h:mm A")}
-      </div>
-      <a className={styles.title} href={item.Link}>
-        {item.Title}
-      </a>
-      <div className={styles.item}>by {item.Author}</div>
-      {ReactHtmlParser(item.Body)}
-    </div>
-  );
-};
-
 export default class Announcements extends React.Component<
   IAnnouncementsProps,
   IAnnouncementsState
 > {
   constructor(props) {
     super(props);
+    this.onRenderCell = this.onRenderCell.bind(this);
     this.state = {
       title: this.props.title,
       isLoading: true,
       moreLink: null,
       items: null,
+      textDisplayLayout: this.props.textDisplayLayout
     };
   }
 
@@ -88,7 +72,27 @@ export default class Announcements extends React.Component<
           console.log(`${error.message}`);
         });
     }
+
+    if (this.props.textDisplayLayout !== prevProps.textDisplayLayout){
+      this.setState({textDisplayLayout: this.props.textDisplayLayout})
+    }
   }
+
+  private onRenderCell(item: AnnouncementItem, index: number | undefined): JSX.Element {
+    return (
+      <div data-is-focusable={true} className={styles.item}>
+        <div className={styles.createdDate}>
+          {moment(item.Created).format("M/D/YYYY h:mm A")}
+        </div>
+        <a className={styles.title} href={item.Link}>
+          {item.Title}
+        </a>
+        <div className={styles.item}>by {item.Author}</div>
+        {ReactHtmlParser(item.Body)}
+      </div>
+    );
+  };
+
 
   public render(): React.ReactElement<IAnnouncementsProps> {
     if (!this.props.isConfigured) {
@@ -110,15 +114,15 @@ export default class Announcements extends React.Component<
       );
     } else {
       return (
-        <div className={styles.announcements}>
+        <div className={this.state.textDisplayLayout === "full" ? styles.announcements : [styles.announcements, styles.previewText].join(' ')}>
           <WebPartTitle
             displayMode={this.props.displayMode}
             title={this.state.title}
             updateProperty={this.props.updateProperty}
           />
           <FocusZone direction={FocusZoneDirection.vertical}>
-            <List items={this.state.items} onRenderCell={onRenderCell} />
-            <a href={this.state.moreLink}>(More Announcements...)</a>
+            <List items={this.state.items} className={styles.listItems}  onRenderCell={this.onRenderCell} />
+            <a href={this.state.moreLink} className={styles.moreLink}>(More Announcements...)</a>
           </FocusZone>
         </div>
       );

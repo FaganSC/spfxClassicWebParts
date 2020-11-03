@@ -8,4 +8,5 @@ export interface IAnnouncementsProps {
   updateProperty: any;
   context: any;
   lists: string;
+  textDisplayLayout: string;
 }

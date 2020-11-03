@@ -1,21 +1,22 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "acd1b901-b3aa-4e42-937f-2b73c8b5ac58",
-  "alias": "AnnouncementsWebPart",
-  "componentType": "WebPart",
-  "version": "*",
-  "manifestVersion": 2,
-  "requiresCustomScript": false,
-  "supportedHosts": ["SharePointWebPart"],
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+    "id": "acd1b901-b3aa-4e42-937f-2b73c8b5ac58",
+    "alias": "AnnouncementsWebPart",
+    "componentType": "WebPart",
+    "version": "*",
+    "manifestVersion": 2,
+    "requiresCustomScript": false,
+    "supportedHosts": ["SharePointWebPart"],
 
-  "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
-    "group": { "default": "Other" },
-    "title": { "default": "Classic Announcements" },
-    "description": { "default": "Classic Announcements for Modern SharePoint" },
-    "officeFabricIconFontName": "Page",
-    "properties": {
-      "description": "Announcements"
-    }
-  }]
+    "preconfiguredEntries": [{
+        "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+        "group": { "default": "Other" },
+        "title": { "default": "Classic Announcements" },
+        "description": { "default": "Classic Announcements for Modern SharePoint" },
+        "officeFabricIconFontName": "Page",
+        "properties": {
+            "description": "Announcements",
+            "textDisplayLayout": "preview"
+        }
+    }]
 }

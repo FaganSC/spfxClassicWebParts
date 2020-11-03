@@ -3,7 +3,7 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneChoiceGroup
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
@@ -15,6 +15,7 @@ import { IAnnouncementsProps } from './components/IAnnouncementsProps';
 export interface IAnnouncementsWebPartProps {
   title: string;
   lists: string;
+  textDisplayLayout: string;
 }
 
 export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnouncementsWebPartProps> {
@@ -41,7 +42,8 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
         isConfigured: this.isConfigured(),
         updateProperty: (value: string) => {
           this.properties.title = value;
-        }
+        },
+        textDisplayLayout: this.properties.textDisplayLayout
       }
     );
 
@@ -76,7 +78,14 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
                   onGetErrorMessage: null,
                   deferredValidationTime: 0,
                   key: 'listPickerFieldId'
-                })
+                }),
+                PropertyPaneChoiceGroup('textDisplayLayout', {
+                  label: 'Text Display',
+                  options: [
+                   { key: 'preview', text: 'Preview Text', checked: true },
+                   { key: 'full', text: 'Full Text'  }
+                 ]
+               })
               ]
             }
           ]

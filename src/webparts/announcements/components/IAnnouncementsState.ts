@@ -4,4 +4,5 @@ export interface IAnnouncementsState {
   title: string;
   moreLink: string;
   items: AnnouncementItem[];
+  textDisplayLayout: string;
 }

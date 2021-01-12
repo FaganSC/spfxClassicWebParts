@@ -8,5 +8,5 @@ export class AnnouncementItem {
     public Title: string;
     public Body: string;
     public Author: string; 
-    public Created: string;
+    public Modified: string;
 }

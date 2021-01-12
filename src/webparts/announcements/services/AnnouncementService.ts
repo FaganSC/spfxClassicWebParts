@@ -51,7 +51,7 @@ export class AnnouncementService {
         return new Promise<AnnouncementItem[]>((resolve, reject) => {
             sp.web.lists.getById(listId)
                 .items
-                .select("Id,Title,Body,Author/Title,Created")
+                .select("Id,Title,Body,Author/Title,Modified")
                 .filter('Expires eq null')
                 .expand("Author")
                 .get()
@@ -71,7 +71,7 @@ export class AnnouncementService {
                 Title: item.Title,
                 Body: item.Body,
                 Author: item.Author.Title,
-                Created: item.Created,
+                Modified: item.Modified,
             };
             return newItem;
         });

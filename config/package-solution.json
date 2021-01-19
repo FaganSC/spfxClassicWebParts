@@ -16,6 +16,6 @@
         }
     },
     "paths": {
-        "zippedPackage": "solution/classic-sp-webparts.sppkg"
+        "zippedPackage": "solution/spfx-classic-web-parts.sppkg"
     }
 }

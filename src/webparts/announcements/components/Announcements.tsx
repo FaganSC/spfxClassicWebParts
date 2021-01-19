@@ -74,7 +74,7 @@ export default class Announcements extends React.Component<
     }
 
     if (this.props.textDisplayLayout !== prevProps.textDisplayLayout){
-      this.setState({textDisplayLayout: this.props.textDisplayLayout})
+      this.setState({textDisplayLayout: this.props.textDisplayLayout});
     }
   }
 
@@ -82,7 +82,7 @@ export default class Announcements extends React.Component<
     return (
       <div data-is-focusable={true} className={styles.item}>
         <div className={styles.createdDate}>
-          {moment(item.Created).format("M/D/YYYY h:mm A")}
+          {moment(item.Modified).format("M/D/YYYY h:mm A")}
         </div>
         <a className={styles.title} href={item.Link}>
           {item.Title}
@@ -91,7 +91,7 @@ export default class Announcements extends React.Component<
         {ReactHtmlParser(item.Body)}
       </div>
     );
-  };
+  }
 
 
   public render(): React.ReactElement<IAnnouncementsProps> {

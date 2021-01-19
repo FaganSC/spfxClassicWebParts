@@ -7,7 +7,7 @@ import "@pnp/sp/items";
 import { Announcement, AnnouncementItem } from '../models/AnnouncementItem';
 import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 import { sampleData } from './AnnouncementServiceData';
-
+import * as moment from 'moment';
 export class AnnouncementService {
     public static getItems(listId: string): Promise<Announcement> {
         var announcementItem: Announcement;
@@ -48,11 +48,12 @@ export class AnnouncementService {
     }
 
     private static getSPItems(listId: string) {
+        var filterDate = moment().format("YYYY-MM-DD");
         return new Promise<AnnouncementItem[]>((resolve, reject) => {
             sp.web.lists.getById(listId)
                 .items
                 .select("Id,Title,Body,Author/Title,Modified")
-                .filter('Expires eq null')
+                .filter("Expires eq null or Expires ge '" + filterDate + "'")
                 .expand("Author")
                 .get()
                 .then((items: any[]) => {

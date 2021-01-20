@@ -55,6 +55,7 @@ export class AnnouncementService {
                 .select("Id,Title,Body,Author/Title,Modified")
                 .filter("Expires eq null or Expires ge '" + filterDate + "'")
                 .expand("Author")
+                .orderBy("Modified", false)
                 .get()
                 .then((items: any[]) => {
                     resolve(items);

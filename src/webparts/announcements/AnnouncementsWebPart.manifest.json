@@ -13,7 +13,7 @@
         "group": { "default": "Other" },
         "title": { "default": "Classic Announcements" },
         "description": { "default": "Classic Announcements for Modern SharePoint" },
-        "officeFabricIconFontName": "Page",
+        "officeFabricIconFontName": "Megaphone",
         "properties": {
             "description": "Announcements",
             "textDisplayLayout": "preview"

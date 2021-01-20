@@ -87,7 +87,7 @@ export default class Announcements extends React.Component<
         <a className={styles.title} href={item.Link}>
           {item.Title}
         </a>
-        <div className={styles.item}>by {item.Author}</div>
+        <div className={styles.author}>by {item.Author}</div>
         {ReactHtmlParser(item.Body)}
       </div>
     );
@@ -121,7 +121,7 @@ export default class Announcements extends React.Component<
             updateProperty={this.props.updateProperty}
           />
           <FocusZone direction={FocusZoneDirection.vertical}>
-            <List items={this.state.items} className={styles.listItems}  onRenderCell={this.onRenderCell} />
+            <List items={this.state.items} className={styles.listItems} onRenderCell={this.onRenderCell} />
             <a href={this.state.moreLink} className={styles.moreLink}>(More Announcements...)</a>
           </FocusZone>
         </div>

@@ -3,25 +3,47 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneChoiceGroup
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-
+import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
+import { sp } from "@pnp/sp";
 import * as strings from 'AnnouncementsWebPartStrings';
 import Announcements from './components/Announcements';
 import { IAnnouncementsProps } from './components/IAnnouncementsProps';
 
 export interface IAnnouncementsWebPartProps {
-  description: string;
+  title: string;
+  lists: string;
+  textDisplayLayout: string;
 }
 
 export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnouncementsWebPartProps> {
+  public onInit(): Promise<void> {
+    return super.onInit().then(_ => {
+      sp.setup({
+        spfxContext: this.context
+      });
+    });
+  }
+
+  private isConfigured(): boolean {
+    return this.properties.lists === undefined ? false : true;
+  }
 
   public render(): void {
     const element: React.ReactElement<IAnnouncementsProps> = React.createElement(
       Announcements,
       {
-        description: this.properties.description
+        title: this.properties.title,
+        context: this.context,
+        lists: this.properties.lists,
+        displayMode: this.displayMode,
+        isConfigured: this.isConfigured(),
+        updateProperty: (value: string) => {
+          this.properties.title = value;
+        },
+        textDisplayLayout: this.properties.textDisplayLayout
       }
     );
 
@@ -30,10 +52,6 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
-  }
-
-  protected get dataVersion(): Version {
-    return Version.parse('1.0');
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
@@ -47,9 +65,27 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
+                PropertyFieldListPicker('lists', {
+                  label: strings.SelectListFieldLabel,
+                  baseTemplate: 104,
+                  selectedList: this.properties.lists,
+                  includeHidden: false,
+                  orderBy: PropertyFieldListPickerOrderBy.Title,
+                  disabled: false,
+                  onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
+                  properties: this.properties,
+                  context: this.context,
+                  onGetErrorMessage: null,
+                  deferredValidationTime: 0,
+                  key: 'listPickerFieldId'
+                }),
+                PropertyPaneChoiceGroup('textDisplayLayout', {
+                  label: 'Text Display',
+                  options: [
+                   { key: 'preview', text: 'Preview Text', checked: true },
+                   { key: 'full', text: 'Full Text'  }
+                 ]
+               })
               ]
             }
           ]

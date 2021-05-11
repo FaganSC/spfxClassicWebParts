@@ -1,0 +1,51 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+.promotedLinks {
+    .tile {
+        float: left;
+        height: 160px;
+        width: 160px;
+        &.hover {
+            .detailsBox {
+                top: 0px !important;
+                transition-property: all;
+                transition-duration: .5s;
+                transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+            }
+            .title {
+                height: auto !important;
+                vertical-align: top !important;
+            }
+        }
+        .container {
+            height: 150px;
+            width: 150px;
+            background-color: #0072c6;
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            .detailsBox {
+                width: 150px;
+                height: 150px;
+                top: 100px;
+                left: 0px;
+                color: #fff;
+                position: absolute;
+                background-color: rgba(76, 76, 76, 0.8);
+                font-size: 1em;
+                >.title {
+                    height: 36px;
+                    margin: 5px;
+                    display: table-cell;
+                    vertical-align: bottom;
+                    padding: 5px;
+                }
+                >.description {
+                    margin: 5px;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}

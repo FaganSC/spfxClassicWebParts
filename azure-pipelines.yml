@@ -6,10 +6,10 @@ trigger:
       - master
 resources:
   repositories:
-  - repository: azure-pipelines-templates
+  - repository: AzurePipelinesTemplates
     type: github
     endpoint: FaganSC
-    name: FaganSC/azure-pipelines-templates
+    name: FaganSC/AzurePipelinesTemplates
     ref: master
 variables:
   node_version: '10.x'
@@ -21,12 +21,12 @@ name: ${{ variables.version }}
 stages:
 - stage: Build
   jobs:
-    - template: spfx/build.yml@azure-pipelines-templates
+    - template: spfx/build.yml@AzurePipelinesTemplates
 - stage: Test
   dependsOn: 
     - Build
   jobs:
-    - template: spfx/test.yml@azure-pipelines-templates
+    - template: spfx/test.yml@AzurePipelinesTemplates
       parameters:
         working_directory: 
         package_manager: ${{ variables.package_manager }}
@@ -36,7 +36,7 @@ stages:
   dependsOn:
     - Test
   jobs:
-    - template: spfx/release.yml@azure-pipelines-templates
+    - template: spfx/release.yml@AzurePipelinesTemplates
       parameters:
         release_title: 'Pre-Release $(Build.BuildNumber)'
         target_environment: PreRelease
@@ -48,7 +48,7 @@ stages:
   dependsOn:
     - Test
   jobs:
-    - template: spfx/release.yml@azure-pipelines-templates
+    - template: spfx/release.yml@AzurePipelinesTemplates
       parameters:
         release_title: 'Release $(Build.BuildNumber)'
         target_environment: Production
@@ -60,7 +60,7 @@ stages:
   dependsOn:
     - Test
   jobs:
-    - template: spfx/deploy.yml@azure-pipelines-templates
+    - template: spfx/deploy.yml@AzurePipelinesTemplates
       parameters:
         target_environment: Development
         variables_group: DevelopmentTenant
@@ -71,7 +71,7 @@ stages:
   dependsOn:
     - GitHubPreRelease
   jobs:
-    - template: spfx/deploy.yml@azure-pipelines-templates
+    - template: spfx/deploy.yml@AzurePipelinesTemplates
       parameters:
         target_environment: PreRelease
         isPreRelease: True
@@ -84,7 +84,7 @@ stages:
   dependsOn:
     - GitHubRelease
   jobs:
-    - template: spfx/deploy.yml@azure-pipelines-templates
+    - template: spfx/deploy.yml@AzurePipelinesTemplates
       parameters:
         target_environment: Release
         isPreRelease: False

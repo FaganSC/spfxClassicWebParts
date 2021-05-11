@@ -9,12 +9,21 @@
           "manifest": "./src/webparts/announcements/AnnouncementsWebPart.manifest.json"
         }
       ]
+    },
+    "links-list-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/linksList/LinksListWebPart.js",
+          "manifest": "./src/webparts/linksList/LinksListWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "AnnouncementsWebPartStrings": "lib/webparts/announcements/loc/{locale}.js",
     "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
-    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js",
+    "LinksListWebPartStrings": "lib/webparts/linksList/loc/{locale}.js"
   }
 }

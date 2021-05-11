@@ -3,8 +3,7 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/fagansc/spfxClassicWebParts?include_prereleases)
 [![Build Status](https://dev.azure.com/scfagan/pipelineBuilds/_apis/build/status/spfx/ClassicWebParts?repoName=FaganSC%2FspfxClassicWebParts&branchName=master)](https://dev.azure.com/scfagan/pipelineBuilds/_build/latest?definitionId=20&repoName=FaganSC%2FspfxClassicWebParts&branchName=master)
 ![SPFX Version](https://img.shields.io/badge/SPFX%20Version-1.11-green.svg)
-![GitHub issues](https://img.shields.io/github/issues/fagansc/spfxClassicWebParts)
-![GitHub all releases](https://img.shields.io/github/downloads/fagansc/spfxClassicWebParts/total)
+
 ## Summary
 Classic SharePoint Web Parts for Modern SharePoint.
 
@@ -28,21 +27,25 @@ Classic SharePoint Web Parts for Modern SharePoint.
 * [React HTML Parser](https://www.npmjs.com/package/react-html-parser)
 * [Moment.js](https://momentjs.com/)
 
-## Solution
+## WebParts in Solution
 
-Solution|Author(s)
+Web Part|Author(s)
 --------|---------
-SPFX Image Slider | [Shawn Fagan](https://twitter.com/fagansc)
+Classic Announcements | [Shawn Fagan](https://twitter.com/fagansc)
+Classic Lists List | [Shawn Fagan](https://twitter.com/fagansc)
 
 ## Version History
 
 Version|Date|Comments
 -------|----|--------
-1.0.0.0|January 25, 2021|Initial release
+1.0.0.0|January 25, 2021|Initial release on Classic Announcements Web Part
+1.1.0.0|May 12 25, 2021|Initial release on Classic Lists List Web Part
 
 ## Current Features
 
 ### Classic SharePoint Announcements Web Part
+
+### Classic SharePoint Links List Web Part
 
 ## Future Features
 -Promoted Links Web Part

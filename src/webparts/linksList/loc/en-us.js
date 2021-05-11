@@ -1,7 +1,7 @@
 define([], function() {
-  return {
-    "PropertyPaneDescription": "Description",
-    "BasicGroupName": "Group Name",
-    "DescriptionFieldLabel": "Description Field"
-  }
+    return {
+        "PropertyPaneDescription": "Web Part for Classic Links List",
+        "BasicGroupName": "List Data",
+        "SelectListFieldLabel": "Select a list"
+    }
 });

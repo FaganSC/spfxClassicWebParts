@@ -1,7 +1,7 @@
 declare interface ILinksListWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  SelectListFieldLabel: string;
 }
 
 declare module 'LinksListWebPartStrings' {

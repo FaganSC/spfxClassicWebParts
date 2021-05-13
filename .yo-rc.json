@@ -1,12 +1,12 @@
 {
-  "@microsoft/generator-sharepoint": {
-    "version": "1.11.0",
-    "libraryName": "classic-web-parts",
-    "libraryId": "2f2c8b90-a093-4bff-b6a6-8ad517b19a4a",
-    "environment": "spo",
-    "packageManager": "npm",
-    "isCreatingSolution": false,
-    "isDomainIsolated": false,
-    "componentType": "webpart"
-  }
+    "@microsoft/generator-sharepoint": {
+        "version": "1.12.1",
+        "libraryName": "classic-web-parts",
+        "libraryId": "2f2c8b90-a093-4bff-b6a6-8ad517b19a4a",
+        "environment": "spo",
+        "packageManager": "npm",
+        "isCreatingSolution": false,
+        "isDomainIsolated": false,
+        "componentType": "webpart"
+    }
 }

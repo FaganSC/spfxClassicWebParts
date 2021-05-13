@@ -2,7 +2,7 @@
 ![GitHub Release Date](https://img.shields.io/github/release-date/fagansc/spfxClassicWebParts)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/fagansc/spfxClassicWebParts?include_prereleases)
 [![Build Status](https://dev.azure.com/scfagan/pipelineBuilds/_apis/build/status/spfx/ClassicWebParts?repoName=FaganSC%2FspfxClassicWebParts&branchName=master)](https://dev.azure.com/scfagan/pipelineBuilds/_build/latest?definitionId=20&repoName=FaganSC%2FspfxClassicWebParts&branchName=master)
-![SPFX Version](https://img.shields.io/badge/SPFX%20Version-1.11-green.svg)
+![SPFX Version](https://img.shields.io/badge/SPFX%20Version-1.12.1-green.svg)
 
 ## Summary
 Classic SharePoint Web Parts for Modern SharePoint.
@@ -11,7 +11,7 @@ Classic SharePoint Web Parts for Modern SharePoint.
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.11-green.svg)
+![version](https://img.shields.io/badge/version-1.12.1-green.svg)
 
 ## Applies to
 
@@ -39,7 +39,7 @@ Classic Lists List | [Shawn Fagan](https://twitter.com/fagansc)
 Version|Date|Comments
 -------|----|--------
 1.0.0.0|January 25, 2021|Initial release on Classic Announcements Web Part
-1.1.0.0|May 12 25, 2021|Initial release on Classic Lists List Web Part
+1.1.0.0|May 12 25, 2021|Upgraded to SPFx 1.12.1 & Initial release on Classic Lists List Web Part
 
 ## Current Features
 

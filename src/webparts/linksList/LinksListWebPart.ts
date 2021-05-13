@@ -76,6 +76,7 @@ export default class LinksListWebPart extends BaseClientSideWebPart<ILinksListWe
                   disabled: false,
                   onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
                   properties: this.properties,
+                  // @ts-ignore
                   context: this.context,
                   onGetErrorMessage: null,
                   deferredValidationTime: 0,

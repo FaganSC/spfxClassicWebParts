@@ -18,7 +18,7 @@ resources:
     name: FaganSC/AzurePipelinesTemplates
     ref: master
     variables:
-      node_version: '10.x'
+      node_version: '12.x'
       package_manager: 'npm'
 name: $(Build.DefinitionName) $(SourceBranchName) $(Date:yyyyMMdd)$(Rev:.r)
 stages:

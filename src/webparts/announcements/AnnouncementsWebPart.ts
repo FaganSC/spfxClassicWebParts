@@ -74,6 +74,7 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
                   disabled: false,
                   onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
                   properties: this.properties,
+                  // @ts-ignore
                   context: this.context,
                   onGetErrorMessage: null,
                   deferredValidationTime: 0,

@@ -28,6 +28,10 @@ stages:
 - stage: Build
   jobs:
     - template: spfx/build.yml@AzurePipelinesTemplates
+      parameters:
+        working_directory: 
+        package_manager: ${{ variables.package_manager }}
+        node_version: ${{ variables.node_version }}
   dependsOn: 
     - Versioning
 - stage: Test

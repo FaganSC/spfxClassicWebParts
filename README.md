@@ -32,7 +32,7 @@ Classic SharePoint Web Parts for Modern SharePoint.
 Web Part|Author(s)
 --------|---------
 Classic Announcements | [Shawn Fagan](https://twitter.com/fagansc)
-Classic Lists List | [Shawn Fagan](https://twitter.com/fagansc)
+Classic Links List | [Shawn Fagan](https://twitter.com/fagansc)
 
 ## Version History
 

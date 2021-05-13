@@ -39,8 +39,8 @@ Classic Lists List | [Shawn Fagan](https://twitter.com/fagansc)
 Version|Date|Comments
 -------|----|--------
 1.0.0.0|January 25, 2021|Initial release on Classic Announcements Web Part
-1.1.0.0|May 12 25, 2021|Initial release on Classic Lists List Web Part
-1.1.1.0|May 13 25, 2021|Upgraded to SPFx 1.12.1
+1.1.0.0|May 12, 2021|Initial release on Classic Lists List Web Part
+1.1.1.0|May 13, 2021|Upgraded to SPFx 1.12.1
 
 ## Current Features
 

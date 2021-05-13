@@ -1,8 +1,8 @@
 import { DisplayMode } from '@microsoft/sp-core-library';
-import { LinkItem } from "../models/LinkItem";
+import { WebPartContext } from '@microsoft/sp-webpart-base';
 export interface ILinksListProps {
   title: string;
-  context: any;
+  context: WebPartContext;
   lists: string;
   displayMode: DisplayMode;
   isConfigured: boolean;

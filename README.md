@@ -22,7 +22,7 @@ Classic SharePoint Web Parts for Modern SharePoint.
 
 ## 3rd Party Packages
 * [PnPjs](https://pnp.github.io/pnpjs/)
-* [PnP Controls React](https://pnp.github.io/
+* [PnP Controls React](https://pnp.github.io/)
 * [PnP Property Controls](https://pnp.github.io/sp-dev-fx-property-controls/)
 * [React HTML Parser](https://www.npmjs.com/package/react-html-parser)
 * [Moment.js](https://momentjs.com/)

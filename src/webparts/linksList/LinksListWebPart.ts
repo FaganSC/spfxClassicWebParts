@@ -3,22 +3,21 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneChoiceGroup
+  PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
 import { sp } from "@pnp/sp";
-import * as strings from 'AnnouncementsWebPartStrings';
-import Announcements from './components/Announcements';
-import { IAnnouncementsProps } from './components/IAnnouncementsProps';
+import * as strings from 'LinksListWebPartStrings';
+import LinksList from './components/LinksList';
+import { ILinksListProps } from './components/ILinksListProps';
 
-export interface IAnnouncementsWebPartProps {
+export interface ILinksListWebPartProps {
   title: string;
   lists: string;
-  textDisplayLayout: string;
 }
 
-export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnouncementsWebPartProps> {
+export default class LinksListWebPart extends BaseClientSideWebPart<ILinksListWebPartProps> {
   public onInit(): Promise<void> {
     return super.onInit().then(_ => {
       sp.setup({
@@ -32,8 +31,8 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
   }
 
   public render(): void {
-    const element: React.ReactElement<IAnnouncementsProps> = React.createElement(
-      Announcements,
+    const element: React.ReactElement<ILinksListProps> = React.createElement(
+      LinksList,
       {
         title: this.properties.title,
         context: this.context,
@@ -42,8 +41,7 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
         isConfigured: this.isConfigured(),
         updateProperty: (value: string) => {
           this.properties.title = value;
-        },
-        textDisplayLayout: this.properties.textDisplayLayout
+        }
       }
     );
 
@@ -52,6 +50,10 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
+  }
+
+  protected get dataVersion(): Version {
+    return Version.parse('1.0');
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
@@ -67,7 +69,7 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
               groupFields: [
                 PropertyFieldListPicker('lists', {
                   label: strings.SelectListFieldLabel,
-                  baseTemplate: 104,
+                  baseTemplate: 103,
                   selectedList: this.properties.lists,
                   includeHidden: false,
                   orderBy: PropertyFieldListPickerOrderBy.Title,
@@ -80,13 +82,6 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
                   deferredValidationTime: 0,
                   key: 'listPickerFieldId'
                 }),
-                PropertyPaneChoiceGroup('textDisplayLayout', {
-                  label: 'Text Display',
-                  options: [
-                   { key: 'preview', text: 'Preview Text', checked: true },
-                   { key: 'full', text: 'Full Text'  }
-                 ]
-               })
               ]
             }
           ]

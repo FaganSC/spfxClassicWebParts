@@ -1,9 +1,4 @@
-export class PromotedLinks {
-    public Title: string;
-    public Link: string;
-    public Items: PromotedLinksItem[];
-}
-export class PromotedLinksItem {
+export class PromotedLinksItems {
     public Title: string;
     public BGImage: string;
     public Description: string;

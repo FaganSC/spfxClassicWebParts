@@ -30,7 +30,7 @@ export default class PromotedLinksWebPart extends BaseClientSideWebPart<IPromote
     return this.properties.list === undefined ? false : true;
   }
 
-  public render(): void { alert('test1');
+  public render(): void {
     const element: React.ReactElement<IPromotedLinksProps> = React.createElement(
       PromotedLinks,
       {
@@ -73,7 +73,7 @@ export default class PromotedLinksWebPart extends BaseClientSideWebPart<IPromote
                   disabled: false,
                   onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
                   properties: this.properties,
-                  context: this.context,
+                  context: this.context as any,
                   onGetErrorMessage: null,
                   deferredValidationTime: 0,
                   key: 'listPickerFieldId'

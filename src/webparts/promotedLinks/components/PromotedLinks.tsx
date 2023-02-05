@@ -6,7 +6,7 @@ import { Placeholder } from "@pnp/spfx-controls-react/lib/Placeholder";
 
 import { DisplayMode } from "@microsoft/sp-core-library";
 import { PromotedLinksService } from '../services/PromotedLinksService';
-import { PromotedLinks as PromotedLinksModel, PromotedLinksItem } from '../models/PromotedLinksItem';
+import { PromotedLinksItems  } from '../models/PromotedLinksItem';
 import { Tiles } from '../components/Tiles';
 import { Spinner } from "office-ui-fabric-react/lib/Spinner";
 
@@ -14,7 +14,7 @@ export default class PromotedLinks extends React.Component<IPromotedLinksProps, 
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false,
+      isLoading: true,
       items: null
     };
   }
@@ -23,14 +23,13 @@ export default class PromotedLinks extends React.Component<IPromotedLinksProps, 
     this.props.context.propertyPane.open();
   }
 
-  public componentDidMount() {alert('test');
+  public componentDidMount() {
     if (this.props.isConfigured) {
       PromotedLinksService.getItems(this.props.list)
-        .then((promotedLinks: PromotedLinksModel) => {
+        .then((promotedLinks: PromotedLinksItems[]) => {
           this.setState({
             isLoading: false,
-            /*moreLink: announcement.Link,*/
-            items: promotedLinks.Items,
+            items: promotedLinks,
           });
         })
         .catch((error: any) => {
@@ -46,13 +45,10 @@ export default class PromotedLinks extends React.Component<IPromotedLinksProps, 
     if (this.props.isConfigured && this.props.list !== prevProps.list) {
       this.setState({ isLoading: true });
       PromotedLinksService.getItems(this.props.list)
-        .then((promotedLinks: PromotedLinksModel) => {
-          /*this.props.updateProperty(announcement.Title);*/
+        .then((promotedLinks: PromotedLinksItems[]) => {
           this.setState({
             isLoading: false,
-            /*title: announcement.Title,*/
-            /*moreLink: announcement.Link,*/
-            items: promotedLinks.Items,
+            items: promotedLinks,
           });
         })
         .catch((error: any) => {
@@ -79,12 +75,12 @@ export default class PromotedLinks extends React.Component<IPromotedLinksProps, 
     } else if (this.state.isLoading) {
       return (
         <div className={styles.promotedLinks}>
-          <Spinner label="Loading Announcements..." />
+          <Spinner label="Loading Promoted Links..." />
         </div>
       );
     } else {
-      let tileItems = items.map((item: PromotedLinksItem) =>
-        <Tiles item={item} />
+      let tileItems = items.map((item: PromotedLinksItems, index:number) =>
+        <Tiles key={index} item={item} />
       );
       return (
         <div className={styles.promotedLinks}>

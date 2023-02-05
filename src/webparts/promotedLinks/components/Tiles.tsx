@@ -1,8 +1,8 @@
 import * as React from "react";
 import styles from "./PromotedLinks.module.scss";
-import { PromotedLinks, PromotedLinksItem } from '../models/PromotedLinksItem';
+import { PromotedLinksItems } from '../models/PromotedLinksItem';
 export interface ITilesProps {
-  item: PromotedLinksItem;
+  item: PromotedLinksItems;
 }
 
 export interface ITilesState {

@@ -1,5 +1,5 @@
-import { PromotedLinks, PromotedLinksItem } from '../models/PromotedLinksItem';
+import { PromotedLinksItems } from '../models/PromotedLinksItem';
 export interface IPromotedLinksState {
     isLoading: boolean;
-    items: PromotedLinksItem[];
+    items: PromotedLinksItems[];
 }

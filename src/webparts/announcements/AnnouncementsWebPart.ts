@@ -84,7 +84,8 @@ export default class AnnouncementsWebPart extends BaseClientSideWebPart<IAnnounc
                   label: 'Text Display',
                   options: [
                    { key: 'preview', text: 'Preview Text', checked: true },
-                   { key: 'full', text: 'Full Text'  }
+                   { key: 'full', text: 'Full Text'  },
+                   { key: 'list', text: 'List View'  },
                  ]
                })
               ]

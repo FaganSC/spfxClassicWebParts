@@ -3,10 +3,7 @@ import styles from "./Announcements.module.scss";
 import { IAnnouncementsProps } from "./IAnnouncementsProps";
 import { IAnnouncementsState } from "./IAnnouncementsState";
 import { Placeholder } from "@pnp/spfx-controls-react/lib/Placeholder";
-import {
-  FocusZone,
-  FocusZoneDirection,
-} from "office-ui-fabric-react/lib/FocusZone";
+import { FocusZone, FocusZoneDirection } from "office-ui-fabric-react/lib/FocusZone";
 import { List } from "office-ui-fabric-react/lib/List";
 import { Announcement, AnnouncementItem } from "../models/AnnouncementItem";
 import { AnnouncementService } from "../services/AnnouncementService";
@@ -15,6 +12,8 @@ import * as moment from "moment";
 import { WebPartTitle } from "@pnp/spfx-controls-react/lib/WebPartTitle";
 import { DisplayMode } from "@microsoft/sp-core-library";
 import { Spinner } from "office-ui-fabric-react/lib/Spinner";
+import NewsView from "./newsView";
+import ListView from "./ListView";
 
 export default class Announcements extends React.Component<
   IAnnouncementsProps,
@@ -73,40 +72,26 @@ export default class Announcements extends React.Component<
         });
     }
 
-    if (this.props.textDisplayLayout !== prevProps.textDisplayLayout){
-      this.setState({textDisplayLayout: this.props.textDisplayLayout});
+    if (this.props.textDisplayLayout !== prevProps.textDisplayLayout) {
+      this.setState({ textDisplayLayout: this.props.textDisplayLayout });
     }
   }
 
-  private onRenderCell(item: AnnouncementItem, index: number | undefined): JSX.Element {
-    return (
-      <div data-is-focusable={true} className={styles.item}>
-        <div className={styles.createdDate}>
-          {moment(item.Modified).format("M/D/YYYY h:mm A")}
-        </div>
-        <a className={styles.title} href={item.Link}>
-          {item.Title}
-        </a>
-        <div className={styles.author}>by {item.Author}</div>
-        {ReactHtmlParser(item.Body)}
-      </div>
-    );
-  }
-
-
   public render(): React.ReactElement<IAnnouncementsProps> {
-    if (!this.props.isConfigured) {
+    const { isLoading, title, textDisplayLayout, items, moreLink } = this.state;
+    const { isConfigured, displayMode, updateProperty } = this.props;
+    if (!isConfigured) {
       return (
         <Placeholder
           iconName="Edit"
           iconText="Configure your Announcements web part"
           description="Please configure the web part."
           buttonLabel="Configure"
-          hideButton={this.props.displayMode === DisplayMode.Read}
+          hideButton={displayMode === DisplayMode.Read}
           onConfigure={this._onConfigure}
         />
       );
-    } else if (this.state.isLoading) {
+    } else if (isLoading) {
       return (
         <div className={styles.announcements}>
           <Spinner label="Loading Announcements..." />
@@ -114,16 +99,14 @@ export default class Announcements extends React.Component<
       );
     } else {
       return (
-        <div className={this.state.textDisplayLayout === "full" ? styles.announcements : [styles.announcements, styles.previewText].join(' ')}>
+        <div className={textDisplayLayout === "full" ? styles.announcements : [styles.announcements, styles.previewText].join(' ')}>
           <WebPartTitle
-            displayMode={this.props.displayMode}
-            title={this.state.title}
-            updateProperty={this.props.updateProperty}
+            displayMode={displayMode}
+            title={title}
+            updateProperty={updateProperty}
           />
-          <FocusZone direction={FocusZoneDirection.vertical}>
-            <List items={this.state.items} className={styles.listItems} onRenderCell={this.onRenderCell} />
-            <a href={this.state.moreLink} className={styles.moreLink}>(More Announcements...)</a>
-          </FocusZone>
+          {displayMode === "preview" || displayMode === "full" && <NewsView MoreLink={moreLink} Items={items} />}
+          {displayMode === "list"  && <ListView MoreLink={moreLink} Items={items} />}
         </div>
       );
     }

@@ -38,9 +38,9 @@ export class Tiles extends React.Component<ITilesProps, ITilesState> {
     }
     const inlineStyle = { backgroundImage: `url(${item.BGImage})` };
     if (item.Launch === "In page navigation"){
-      linkBehavior = "_self"
+      linkBehavior = "_self";
     } else {//New tab
-      linkBehavior = "_blank"
+      linkBehavior = "_blank";
     }
     //Dialog
     return (

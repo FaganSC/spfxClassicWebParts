@@ -3,10 +3,11 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneToggle
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
+import { PropertyFieldColorPicker, PropertyFieldColorPickerStyle } from '@pnp/spfx-property-controls/lib/PropertyFieldColorPicker';
 import { sp } from "@pnp/sp";
 import * as strings from 'PromotedLinksWebPartStrings';
 import PromotedLinks from './components/PromotedLinks';
@@ -15,6 +16,11 @@ import { IPromotedLinksProps } from './components/IPromotedLinksProps';
 export interface IPromotedLinksWebPartProps {
   title: string;
   list: string;
+  imageOverride: boolean;
+  staticBGColor: string;
+  staticTXTColor: string;
+  hoverBGColor: string;
+  hoverTXTColor: string;
 }
 
 export default class PromotedLinksWebPart extends BaseClientSideWebPart<IPromotedLinksWebPartProps> {
@@ -38,6 +44,11 @@ export default class PromotedLinksWebPart extends BaseClientSideWebPart<IPromote
         context: this.context,
         list: this.properties.list,
         displayMode: this.displayMode,
+        imageOverride: this.properties.imageOverride,
+        staticBGColor: this.properties.staticBGColor,
+        staticTXTColor: this.properties.staticTXTColor,
+        hoverBGColor: this.properties.hoverBGColor,
+        hoverTXTColor: this.properties.hoverTXTColor,
         isConfigured: this.isConfigured()
       }
     );
@@ -78,6 +89,60 @@ export default class PromotedLinksWebPart extends BaseClientSideWebPart<IPromote
                   deferredValidationTime: 0,
                   key: 'listPickerFieldId'
                 }),
+                PropertyPaneToggle('imageOverride',{
+                  label: 'Display only Text',
+                  onText:"Text Only",
+                  offText:"Images from list",
+                  checked:this.properties.imageOverride
+                }),
+                PropertyFieldColorPicker('staticBGColor', {
+                  label: 'Static Background Color',
+                  selectedColor: this.properties.staticBGColor,
+                  onPropertyChange: this.onPropertyPaneFieldChanged,
+                  properties: this.properties,
+                  disabled: false,
+                  isHidden: false,
+                  alphaSliderHidden: false,
+                  style: PropertyFieldColorPickerStyle.Inline,
+                  iconName: 'Precipitation',
+                  key: 'colorFieldId'
+                }),
+                PropertyFieldColorPicker('staticTXTColor', {
+                  label: 'Static Text Color',
+                  selectedColor: this.properties.staticTXTColor,
+                  onPropertyChange: this.onPropertyPaneFieldChanged,
+                  properties: this.properties,
+                  disabled: false,
+                  isHidden: false,
+                  alphaSliderHidden: false,
+                  style: PropertyFieldColorPickerStyle.Inline,
+                  iconName: 'Precipitation',
+                  key: 'colorFieldId'
+                }),
+                PropertyFieldColorPicker('hoverBGColor', {
+                  label: 'Hover Background Color',
+                  selectedColor: this.properties.hoverBGColor,
+                  onPropertyChange: this.onPropertyPaneFieldChanged,
+                  properties: this.properties,
+                  disabled: false,
+                  isHidden: false,
+                  alphaSliderHidden: false,
+                  style: PropertyFieldColorPickerStyle.Inline,
+                  iconName: 'Precipitation',
+                  key: 'colorFieldId'
+                }),
+                PropertyFieldColorPicker('hoverTXTColor', {
+                  label: 'Hover Text Color',
+                  selectedColor: this.properties.hoverTXTColor,
+                  onPropertyChange: this.onPropertyPaneFieldChanged,
+                  properties: this.properties,
+                  disabled: false,
+                  isHidden: false,
+                  alphaSliderHidden: false,
+                  style: PropertyFieldColorPickerStyle.Inline,
+                  iconName: 'Precipitation',
+                  key: 'colorFieldId'
+                })
               ]
             }
           ]

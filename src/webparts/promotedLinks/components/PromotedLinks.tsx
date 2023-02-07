@@ -10,13 +10,15 @@ import { PromotedLinksItems } from '../models/PromotedLinksItem';
 import { Tiles } from '../components/Tiles';
 import { Spinner } from "office-ui-fabric-react/lib/Spinner";
 import { HoverStaticTiles } from './HoverStaticTiles';
+import { WebPartTitle } from '@pnp/spfx-controls-react/lib/controls/webPartTitle';
 
 export default class PromotedLinks extends React.Component<IPromotedLinksProps, IPromotedLinksState> {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
-      items: null
+      items: null,
+      title: this.props.title,
     };
   }
 
@@ -82,14 +84,19 @@ export default class PromotedLinks extends React.Component<IPromotedLinksProps, 
     } else {
       let tileItems = items.map((item: PromotedLinksItems, index: number) => {
         if (this.props.imageOverride) {
-          return(<HoverStaticTiles key={index} item={item} staticBGColor={this.props.staticBGColor} staticTXTColor={this.props.staticTXTColor} hoverBGColor={this.props.hoverBGColor} hoverTXTColor={this.props.hoverTXTColor} />);
+          return (<HoverStaticTiles key={index} item={item} staticBGColor={this.props.staticBGColor} staticTXTColor={this.props.staticTXTColor} hoverBGColor={this.props.hoverBGColor} hoverTXTColor={this.props.hoverTXTColor} />);
         } else {
-          return(<Tiles key={index} item={item} />);
+          return (<Tiles key={index} item={item} />);
         }
       }
       );
       return (
         <div className={styles.promotedLinks}>
+          <WebPartTitle
+            displayMode={this.props.displayMode}
+            title={this.state.title}
+            updateProperty={this.props.updateProperty}
+          />
           {tileItems}
           <div style={clearStyle}></div>
         </div>

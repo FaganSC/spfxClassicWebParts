@@ -49,7 +49,10 @@ export default class PromotedLinksWebPart extends BaseClientSideWebPart<IPromote
         staticTXTColor: this.properties.staticTXTColor,
         hoverBGColor: this.properties.hoverBGColor,
         hoverTXTColor: this.properties.hoverTXTColor,
-        isConfigured: this.isConfigured()
+        isConfigured: this.isConfigured(),
+        updateProperty: (value: string) => {
+          this.properties.title = value;
+        },
       }
     );
 

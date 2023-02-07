@@ -11,4 +11,5 @@ export interface IPromotedLinksProps {
   hoverTXTColor: string;
   isConfigured:boolean;
   displayMode: DisplayMode;
+  updateProperty: any;
 }

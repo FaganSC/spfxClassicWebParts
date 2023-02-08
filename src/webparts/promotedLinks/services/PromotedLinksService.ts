@@ -10,8 +10,9 @@ export class PromotedLinksService {
         return new Promise<PromotedLinksItems[]>((resolve, reject) => {
             sp.web.lists.getById(listId)
                 .items
-                .select("Title,BackgroundImageLocation,Description,LinkLocation,LaunchBehavior,TileOrder")
+                .select("Id,Title,BackgroundImageLocation,Description,LinkLocation,LaunchBehavior,TileOrder")
                 .orderBy("TileOrder", true)
+                .orderBy("Id", true)
                 .get()
                 .then((items: any[]) => {
                     const returnData: PromotedLinksItems[] = items.map((item: any) => {

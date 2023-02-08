@@ -51,7 +51,7 @@ export class HoverStaticTiles extends React.Component<IHoverStaticTilesProps, IH
     return (
       <a href={item.Link} className={styles.staticTile} style={hover ? hoverLinkStyle : staticLinkStyle} target={linkBehavior} onMouseOver={this._onMouseOver} onMouseOut={this._onMouseOut}>
         <div>
-          <div className={styles.title}>{item.Title}</div>
+          <span>{item.Title}</span>
         </div>
       </a>
     );

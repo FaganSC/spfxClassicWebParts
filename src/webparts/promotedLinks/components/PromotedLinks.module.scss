@@ -60,17 +60,17 @@
         height: 160px;
         width: 160px;
         float: left;
+        margin: 8px;
+
         div {
             height: 160px;
-            width: 160px;
-            position: relative;
-            div{
-                margin: 0;
-                position: absolute;
-                top:50%;
-                left: 50%;
-                margin-right: -50%;
-                transform: translate(-50%,-50%);
+            line-height: 160px;
+            text-align: center;
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: normal;
                 text-align: center;
                 font-size: 16px;
                 font-weight: 600;

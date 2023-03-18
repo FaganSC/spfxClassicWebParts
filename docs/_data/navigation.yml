@@ -1,0 +1,19 @@
+- title: Home
+  url: "/"
+  side: left
+
+- title: Projects
+  url: "/projects/"
+  side: left
+
+- title: "How To"
+  url: "/howto/"
+  side: left
+
+- title: Blog
+  url: "/blog/"
+  side: left
+
+- title: "About Me"
+  url: "/about/"
+  side: right

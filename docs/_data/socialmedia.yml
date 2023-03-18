@@ -1,0 +1,44 @@
+- name: GitHub
+  url: http://github.com/FaganSC
+  class: icon-github
+  title: GitHub
+
+- name: YouTube
+  url: https://www.youtube.com/@FaganSC
+  class: icon-youtube
+  title: "YouTube"
+
+- name: Twitter
+  url: http://twitter.com/FaganSC
+  class: icon-twitter
+  title: "Twitter"
+
+#- name: Mixcloud
+#  url: http://www.mixcloud.com/phlow/
+#  class: icon-cloud
+#  title: "Mixe, was sonst?"
+
+# - name: Facebook
+#   url: http://www.facebook.com/
+#   class: icon-facebook
+#   title: ""
+
+- name: Soundcloud
+  url: https://sonarcloud.io/organizations/fagansc
+  class: icon-soundcloud
+  title: ""
+
+# - name: Instagram
+#   url: http://instagram.com/
+#   class: icon-instagram
+#   title: ""
+
+# - name: Pinterest
+#   url: http://www.pinterest.com/
+#   class: icon-pinterest
+#   title: ""
+
+# - name: Xing
+#   url: https://www.xing.com/profile/
+#   class: icon-xing
+#   title: Xing Profil

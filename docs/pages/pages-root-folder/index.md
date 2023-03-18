@@ -17,25 +17,6 @@ image:
     caption: Unsplash.com
     caption_url: http://unsplash.com
 author: mo
----
-*Feeling Responsive* shows metadata by default. The default behaviour can be changed via `config.yml`. To show metadata at the end of a page/post just add the following to front matter:
-<!--more-->
-
-~~~
-show_meta: true
-~~~
-
-If you don't want to show metadata, it's simple again:
-
-~~~
-show_meta: false
-~~~
-
-
-## Other Post Formats
-{: .t60 }
-{% include list-posts tag='post format' %}
-
 
 permalink: /index.html
 #
@@ -44,10 +25,3 @@ permalink: /index.html
 #
 homepage: true
 ---
-
-<div id="videoModal" class="reveal-modal large" data-reveal="">
-  <div class="flex-video widescreen vimeo" style="display: block;">
-    <iframe width="1280" height="720" src="https://www.youtube.com/embed/3b5zCFSmVvU" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <a class="close-reveal-modal">&#215;</a>
-</div>

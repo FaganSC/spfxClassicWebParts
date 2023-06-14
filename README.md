@@ -22,7 +22,7 @@ Classic SharePoint Web Parts for Modern SharePoint.
 
 ## 3rd Party Packages
 * [PnPjs](https://pnp.github.io/pnpjs/)
-* [PnP Controls React](https://pnp.github.io/
+* [PnP Controls React](https://pnp.github.io/)
 * [PnP Property Controls](https://pnp.github.io/sp-dev-fx-property-controls/)
 * [React HTML Parser](https://www.npmjs.com/package/react-html-parser)
 * [Moment.js](https://momentjs.com/)
@@ -32,14 +32,15 @@ Classic SharePoint Web Parts for Modern SharePoint.
 Web Part|Author(s)
 --------|---------
 Classic Announcements | [Shawn Fagan](https://twitter.com/fagansc)
-Classic Lists List | [Shawn Fagan](https://twitter.com/fagansc)
+Classic Links List | [Shawn Fagan](https://twitter.com/fagansc)
 
 ## Version History
 
 Version|Date|Comments
 -------|----|--------
 1.0.0.0|January 25, 2021|Initial release on Classic Announcements Web Part
-1.1.0.0|May 12 25, 2021|Upgraded to SPFx 1.12.1 & Initial release on Classic Lists List Web Part
+1.1.0.0|May 12, 2021|Initial release on Classic Lists List Web Part
+1.1.1.0|May 13, 2021|Upgraded to SPFx 1.12.1
 
 ## Current Features
 

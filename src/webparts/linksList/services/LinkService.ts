@@ -32,10 +32,10 @@ export class LinkService {
         }
     }
 
-    private static getSPList(listId: string){
+    private static getSPList(listId: string) {
         return new Promise<string>((resolve, reject) => {
             sp.web.lists.getById(listId)
-                .select("Title","RootFolder/ServerRelativeUrl")
+                .select("Title", "RootFolder/ServerRelativeUrl")
                 .expand("RootFolder")
                 .get()
                 .then((list: any) => {
@@ -78,6 +78,7 @@ export class LinkService {
                 retVal.push(c);
             }
         }
+        retVal = retVal.sort((a, b) => (a.Title > b.Title) ? 1 : ((b.Title > a.Title) ? -1 : 0))
         return retVal;
     }
 }
